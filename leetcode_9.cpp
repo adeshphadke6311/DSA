@@ -4,6 +4,8 @@
 #include <climits>
 using namespace std;
 
+//Time Complexity   =   O(log10(n))
+//Space Complexity  =   O(1)
 class Solution {
 public:
     int reverse(int x) {
