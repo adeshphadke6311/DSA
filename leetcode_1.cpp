@@ -1,38 +1,42 @@
-// 1. Two Sum
+//. Two Sum 
 
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 using namespace std;
 
-//Time Complexity   :   O(n^2) [Brute force solution]
-//Space Complexity  :   O(1)
+class Solution {
+    //Time Complexity   :   O(n)
+    //Space Complexity  :   O(n)
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+        int n = nums.size();
+        unordered_map<int,int> m;
 
-class Solution{
-    public:
+        for(int i=0; i<n; i++){
+            int first = nums[i];
+            int second = target - first;
 
-     vector<int> twoSum(vector<int>&nums,int target){
-        for(int i=0; i<nums.size();i++){
-            for(int j=i+1;j<nums.size();j++){
-                if(nums[i]+nums[j]==target){
-                    return {i,j};
-                }
+            if(m.find(second) != m.end()){
+                return {m[second],i};
             }
-        }
-        return{};
 
+            m[first] = i;
+        }
+
+        return {};
+        
     }
 };
 
-
-
 int main(){
-    vector<int> nums = {2,7,11,15};
-    int target = 9;
+    vector<int> vec = {3,2,4};
+    int target = 6;
+    vector<int> ans;
     Solution sol;
-    vector<int> result = sol.twoSum(nums,target);
-    for(int i : result){
-        cout<<i<<" ";
+    ans = sol.twoSum(vec,target);
+    for(int val : ans){
+        cout<<val<<" ";
     }
     cout<<endl;
-    return 0;
 }
