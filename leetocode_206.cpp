@@ -20,6 +20,7 @@ struct ListNode{
     }
 
     ListNode(int x, ListNode* next){
+        val = x;
         this->next = next;
     }
 };
