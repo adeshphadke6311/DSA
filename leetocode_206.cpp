@@ -10,7 +10,7 @@ struct ListNode{
 
     ListNode(){
         val = 0;
-        next = nullptr;
+        next = nullptr; //Always use nullptr because it can't be treated as 0, NULL is internally treated as integer 0;
 
     }
 
@@ -45,6 +45,16 @@ public:
         return prev;
         
     }
+
+    void print(ListNode* head){
+
+        while(head != nullptr){
+            cout<<head->val<<" ";
+            head = head->next;
+
+        }
+        cout<<endl;
+    }
 };
 
 int main(){
@@ -54,12 +64,12 @@ int main(){
     cin>>input_nodes;
     cout<<endl;
 
-    cout<<"Enter Nodes ";
+    cout<<"Enter Nodes "<<endl;
 
     ListNode* head = nullptr;
     ListNode* tail = nullptr;
-    int j;
     for(int i=0; i<input_nodes; i++){
+        int j;
         cin>>j;
 
         ListNode* newNode = new ListNode(j);
@@ -71,5 +81,9 @@ int main(){
             tail = newNode;
         }
     }
+
+    Solution sol;
+    head = sol.reverseList(head);
+    sol.print(head);
     return 0;
 }
