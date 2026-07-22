@@ -23,12 +23,12 @@ class Solution {
     /*
     Time Complexity     :   O(n)
     Space Complexity    :   O(n)
-    
-    */
 
-    
+    */
 public:
     Node* copyRandomList(Node* head) {
+        /*
+
         if(head == nullptr){
             return nullptr;
         }
@@ -55,6 +55,61 @@ public:
         }
 
         return newHead;
+        */
+
+
+
+        // Time Complexity  :   O(n)
+        // Space Complexity :   O(1)
+        if(head == nullptr){
+            return nullptr;
+        }
+
+        //Make the copy of node after original node
+        //A -> A' -> B -> B' -> C -> C'
+
+        Node* curr = head;
+
+        while(curr){
+            Node* copyNode = new Node(curr->val);
+            copyNode->next = curr->next;
+            curr->next = copyNode;
+            curr = copyNode->next;
+        }
+
+        //A.random = C then A' = C', curr->next->random = current.random->next
+        //Copying Random Pointers
+
+        curr = head;
+
+        while(curr){
+            if(curr->random){
+                curr->next->random = curr->random->next;
+            }
+            curr = curr->next->next;
+        }
+
+        //Separating original and copied list
+
+        curr  = head;
+        Node* newHead = head->next;
+
+        while(curr){
+            Node* copy = curr->next;
+            curr->next = copy->next;
+            
+            if(copy->next){
+                copy->next = copy->next->next;
+            }
+            
+            curr = curr->next;
+            
+        }
+
+        return newHead;
+
+        
+
 
 
         
