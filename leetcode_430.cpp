@@ -12,7 +12,53 @@ public:
 };
 
 
+
+
 class Solution {
+    
+    /* 
+        Node* flatten(Node* head) {
+            if(head == nullptr) return head;
+    
+            Node* curr = head;
+    
+            while(curr){
+                //Valid Child
+                if(curr->child){
+                    //Flatten list
+    
+                    Node* next = curr->next;
+                    curr->next = flatten(curr->child);
+                    curr->next->prev = curr;
+                    curr->child = nullptr;
+    
+    
+                    //Find a tail node
+    
+                    while(curr->next){
+                        curr = curr->next;
+                    }
+    
+                    //Attach child tail to next
+    
+                    if(next != nullptr){
+                        curr->next = next;
+                        next->prev = curr;
+                    }
+                }
+    
+                curr = curr->next;
+            }
+    
+    
+            return head;
+    
+    
+            
+        }
+    };
+    */
+
     //Time Complexity   :   O(n)
     //Space Complexity  :   O(m) m = Maximum nesting depth
 private:
