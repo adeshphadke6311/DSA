@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 //Time Complexity = O(n)
-//Space Complexity = O(1)
+//Space Complexity = O(n)
 class Solution {
 public:
     vector<int> productExceptSelf(vector<int>& nums) {
