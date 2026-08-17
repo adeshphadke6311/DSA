@@ -58,6 +58,7 @@ public:
             maxArea = max(currArea, maxArea);
         }
 
+        //Calculating Rectangle area for each bar
         for(int i=0; i<n; i++){
             int width = right[i] - left[i] - 1;
             heights[i] = heights[i] * width;
