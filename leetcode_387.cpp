@@ -10,7 +10,7 @@ class Solution {
 public:
     int firstUniqChar(string s) {
         queue<int> q;
-        unordered_map<char,int> m;
+        unordered_map<char,int> m; //int value will be initialised with 0;
 
         for(int i=0; i<s.size(); i++){
             if(m.find(s[i]) == m.end()){
