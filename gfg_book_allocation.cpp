@@ -12,9 +12,11 @@ class Solution {
         int pages = 0, student = 1;
         
         for(int i = 0; i < n; i++){
-            if(arr[i] > maxAllowedPages){
+            /* if(arr[i] > maxAllowedPages){
                 return false;
-            }
+            } */
+
+            //This condition will never get executed because our maxAllowed pages will always >= arr[i];
             if(pages + arr[i] <= maxAllowedPages){
                 pages += arr[i];
             }else{
