@@ -1,16 +1,21 @@
 #include <iostream>
 using namespace std;
 
-//Time Complexity : O(n^2)
-//Space Complexity : O(1)
 class Solution {
+    // Time Complexity   : O(n^2)
+    // find() takes O(n) and can be called multiple times.
+    // erase() can also take O(n).
+    
+    // Space Complexity  : O(1)
+
 public:
-    string removeOccurrences(string &s, string &part) {
+    string removeOccurrences(string s, string part) {
+        size_t pos;
 
-        while(s.length() > 0 && s.find(part) < s.length()){
-            s.erase(s.find(part),part.length());
+        while((pos = s.find(part)) != string :: npos){
+            s.erase(pos, part.length());
         }
-
+        
         return s;
     }
 };
