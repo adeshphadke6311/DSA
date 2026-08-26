@@ -20,7 +20,7 @@ class Solution {
     // Overall Space        : O(h + L * h)
 public:
     void helper(TreeNode* root, string path, vector<string>&ans){ //O(n)
-        if(root->left == nullptr && root->right == nullptr){
+        if(!root->left && !root->right){
             ans.push_back(path);
             return;
         }
